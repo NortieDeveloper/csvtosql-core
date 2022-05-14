@@ -1,9 +1,9 @@
 use std::io;
-use std::path::Path;
 
 
-pub fn extract_headers(file_path: &Path) -> Result<Vec<String>, io::Error> {
-    let mut reader = csv::Reader::from_path(file_path)?;
+pub fn extract_headers(file_contents: &str) -> Result<Vec<String>, io::Error> {
+
+    let mut reader = csv::Reader::from_reader(file_contents.as_bytes());
 
     let mut result: Vec<String> = vec![];
 
